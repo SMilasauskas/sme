@@ -1,0 +1,25 @@
+export const theme = {
+  colors: {
+    blueColor: '#2B64F5',
+    blueColorFAB: '#3E71F4',
+    black: '#000000',
+    red: '#FF7064',
+    green: '#95E980',
+    white: '#FFFFFF',
+    grey: '#F7F7F7',
+    borderGreyDarker: '#CCCCCC',
+    borderGreyLighter: '#D9D9D9',
+    greyLabel: '#B2B2B2',
+    greyText: '#7F7F7F',
+    greyBoxShadow: '#EAEAEA',
+    chatResponseBackground: '#D9E4FF99',
+    chatInputBackground: '#F8F8F8',
+    chatCharCounter: '#C2C0C0',
+  },
+  breakpoints: {
+    xs: '480px',
+    sm: '768px',
+    md: '1024px',
+    lg: '1440px',
+  },
+};
