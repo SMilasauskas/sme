@@ -37,6 +37,17 @@ export const LayoutContent = styled.div<PageContentT>`
   // }
 `;
 
+export const FormWrapper = styled.div`
+  grid-column: 4/10;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.md}) {
+    grid-column: 5/12;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
+    grid-column: 2/9;
+  }
+`;
 export const HeaderWrapper = styled.div`
   height: 92px;
   grid-column: 1/13;
