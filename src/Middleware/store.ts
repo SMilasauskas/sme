@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import stepper from './slices/stepper';
+import chat from './slices/chat';
 
 export const store = configureStore({
-  reducer: { stepper },
+  reducer: { stepper, chat },
 });
 
 export default store;

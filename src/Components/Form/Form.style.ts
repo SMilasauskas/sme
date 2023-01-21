@@ -9,6 +9,10 @@ export const ButtonsWrapper = styled.div`
   padding: 20px 0 40px;
 
   @media (max-width: ${(props) => props.theme.breakpoints.lg}) {
+    max-width: 420px;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.md}) {
     max-width: 360px;
   }
 
@@ -25,6 +29,10 @@ export const StepWrapper = styled.div`
   width: 100%;
 
   @media (max-width: ${(props) => props.theme.breakpoints.lg}) {
+    max-width: 420px;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.md}) {
     max-width: 360px;
   }
 

@@ -6,12 +6,12 @@ import Header from '../../Components/Header/Header';
 import Card from 'Components/common/Card';
 import Form from '../../Components/Form/Form';
 import { StepperT } from '../../Middleware/slices/stepper';
-
 import {
   StepperProgressWrapper,
   FormWrapper,
   HeaderWrapper,
 } from 'Components/common/Layout/Layout.style';
+import Chat from '../../Components/Chat/Chat';
 
 type StateT = {
   stepper: StepperT;
@@ -35,6 +35,8 @@ const FormStepper = () => {
           <Form step={step} />
         </Card>
       </FormWrapper>
+
+      <Chat />
     </Layout>
   );
 };
