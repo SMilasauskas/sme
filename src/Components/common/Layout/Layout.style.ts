@@ -37,6 +37,18 @@ export const LayoutContent = styled.div<PageContentT>`
   // }
 `;
 
+export const StepperProgressWrapper = styled.div`
+  grid-column: 1/3;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.md}) {
+    grid-column: 1/3;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
+    grid-column: 1/2;
+  }
+`;
+
 export const FormWrapper = styled.div`
   grid-column: 4/10;
 

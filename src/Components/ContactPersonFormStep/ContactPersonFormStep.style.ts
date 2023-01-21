@@ -15,3 +15,32 @@ export const PhoneNumberWrapper = styled.div`
     gap: 10px;
   }
 `;
+
+export const CheckBoxText = styled.span`
+  line-height: 20px;
+  font-size: 14px;
+  color: ${(props) => props.theme.colors.greyText};
+
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
+    line-height: 16px;
+    font-size: 10px;
+  }
+`;
+
+export const CheckBoxTextButton = styled.span`
+  line-height: 20px;
+  font-size: 14px;
+  color: ${(props) => props.theme.colors.blueColor};
+  cursor: pointer;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
+    line-height: 16px;
+    font-size: 10px;
+  }
+`;
+
+export const TextSheet = styled.div`
+  max-height: 639px;
+  overflow: auto;
+  padding-right: 20px;
+`;

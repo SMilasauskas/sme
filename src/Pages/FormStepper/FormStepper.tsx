@@ -1,12 +1,17 @@
 import { useAppSelector } from '../../Middleware/hooks';
-
+import StepperProgress from '../../Components/StepperProgress/StepperProgress';
+import { stepNames } from './FormStepper.constants';
 import Layout from 'Components/common/Layout';
 import Header from '../../Components/Header/Header';
 import Card from 'Components/common/Card';
 import Form from '../../Components/Form/Form';
 import { StepperT } from '../../Middleware/slices/stepper';
 
-import { FormWrapper, HeaderWrapper } from 'Components/common/Layout/Layout.style';
+import {
+  StepperProgressWrapper,
+  FormWrapper,
+  HeaderWrapper,
+} from 'Components/common/Layout/Layout.style';
 
 type StateT = {
   stepper: StepperT;
@@ -20,6 +25,10 @@ const FormStepper = () => {
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
+
+      <StepperProgressWrapper>
+        <StepperProgress stepNames={stepNames} step={step} />
+      </StepperProgressWrapper>
 
       <FormWrapper>
         <Card>

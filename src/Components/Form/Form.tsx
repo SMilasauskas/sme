@@ -1,5 +1,7 @@
 import { Formik } from 'formik';
-import { useAppDispatch } from '../../Middleware/hooks';
+import * as Yup from 'yup';
+import { useAppDispatch, useAppSelector } from '../../Middleware/hooks';
+import { expandText } from '../../Middleware/slices/stepper';
 import { StyledForm, StepWrapper, Title, ButtonsWrapper } from './Form.style';
 import CompanyFormStep from '../CompanyFormStep/CompanyFormStep';
 import ContactPersonFormStep from '../ContactPersonFormStep/ContactPersonFormStep';
@@ -12,8 +14,8 @@ type FormT = { step: number };
 
 const Form = ({ step }: FormT) => {
   const dispatch = useAppDispatch();
+  const isExpanded = useAppSelector((state) => state.stepper.isExpandedText);
   const numberOfSteps = stepNames.length;
-  console.log('numberOfSteps', numberOfSteps);
   const isLastStep = step === numberOfSteps;
   const isFirstStep = step === 0;
 
@@ -25,7 +27,7 @@ const Form = ({ step }: FormT) => {
       case 2:
         return <ContactPersonFormStep />;
       default:
-        return <div>Product and Amount step</div>;
+        return <div>No info</div>;
     }
   };
 
@@ -34,14 +36,17 @@ const Form = ({ step }: FormT) => {
   };
 
   const prevFormStep = () => {
-    dispatch(previousStep());
+    if (isExpanded) {
+      dispatch(expandText());
+    } else {
+      dispatch(previousStep());
+    }
   };
 
   const handleSubmit = (
     values: any,
     actions: { setTouched: (arg0: {}) => void; setSubmitting: (arg0: boolean) => void },
   ) => {
-    console.log('im here');
     actions.setTouched({});
 
     if (isLastStep) {
@@ -54,15 +59,15 @@ const Form = ({ step }: FormT) => {
     nextFormStep();
   };
 
-  const submitForm = (props: any) => {
-    console.log(props, 'On Submit');
-  };
+  const submitForm = (props: any) => {};
 
   return (
     <Formik
       initialValues={fields}
       onSubmit={handleSubmit}
-      validationSchema={stepsValidationSchema[step]}
+      validationSchema={
+        stepsValidationSchema[step] ? stepsValidationSchema[step] : Yup.object().shape({})
+      }
     >
       {(props) => (
         <StyledForm id={'form ' + step} onSubmit={props.handleSubmit}>
@@ -72,7 +77,7 @@ const Form = ({ step }: FormT) => {
 
           <ButtonsWrapper>
             <Button disabled={isFirstStep} onClick={prevFormStep} color="outlined" text="Back" />
-            <Button text={isLastStep ? 'Submit' : 'Next'} type={'submit'} />
+            {!isExpanded && <Button text={isLastStep ? 'Submit' : 'Next'} type={'submit'} />}
           </ButtonsWrapper>
         </StyledForm>
       )}

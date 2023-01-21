@@ -14,7 +14,7 @@ const Dropdown = ({ name, options, optionValue }: DropdownT) => {
   return (
     <DropdownContent>
       <Select
-        placeholder={name}
+        placeholder={optionValue === 'phoneCode' ? 'Country code' : name}
         styles={customDropdownStyles}
         name={name}
         getOptionValue={(option: any) => option[optionValue]}
@@ -26,6 +26,7 @@ const Dropdown = ({ name, options, optionValue }: DropdownT) => {
           colors: {
             ...theme.colors,
             primary: '#B2B2B2',
+            neutral50: 'black', // Placeholder color
           },
         })}
         components={{
@@ -33,7 +34,9 @@ const Dropdown = ({ name, options, optionValue }: DropdownT) => {
         }}
         options={options}
         defaultValue={options.find((option) => option.value === fieldOpt.value)}
-        onChange={(option: SingleValue<Option>) => fieldActions.setValue(option?.value)}
+        onChange={(option: SingleValue<Option>) =>
+          fieldActions.setValue(optionValue === 'phoneCode' ? option?.phoneCode : option?.value)
+        }
       />
 
       <ErrorMessage name={name}>{(msg) => <div className="errorMessage">{msg}</div>}</ErrorMessage>

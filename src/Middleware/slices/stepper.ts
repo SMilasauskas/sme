@@ -10,7 +10,7 @@ export type FieldsT = {
   phoneNumber: string;
   privacyPolicy: boolean;
   partnership: boolean;
-  companyCode: number | null;
+  companyCode: string;
   companyName: string;
   companyCountryRegistration: string;
 };
@@ -18,6 +18,7 @@ export type FieldsT = {
 export type StepperT = {
   step: number;
   fields: FieldsT;
+  isExpandedText: boolean;
 };
 
 export const initialState: StepperT = {
@@ -31,10 +32,11 @@ export const initialState: StepperT = {
     phoneNumber: '',
     privacyPolicy: false,
     partnership: false,
-    companyCode: null,
+    companyCode: '',
     companyName: '',
     companyCountryRegistration: 'Lithuania',
   },
+  isExpandedText: false,
 };
 
 export const stepperSlice = createSlice({
@@ -58,9 +60,12 @@ export const stepperSlice = createSlice({
 
       return { ...state, fields: { ...state.fields, [field]: newValue } };
     },
+    expandText: (state: StepperT) => {
+      return { ...state, isExpandedText: !state.isExpandedText };
+    },
   },
 });
 
-export const { nextStep, previousStep, fieldChange } = stepperSlice.actions;
+export const { nextStep, previousStep, fieldChange, expandText } = stepperSlice.actions;
 
 export default stepperSlice.reducer;

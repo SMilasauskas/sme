@@ -18,6 +18,7 @@ export const customDropdownStyles = {
     borderRadius: '8px',
     borderWidth: 1,
     borderColor: state.hover ? '#B2B2B2' : '#B2B2B2',
+    marginBottom: '10px',
   }),
   option: (styles: any) => ({ ...styles, backgroundColor: 'white', color: '#000000' }),
   singleValue: (styles: any) => ({ ...styles, color: '#000000' }),
