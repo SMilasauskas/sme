@@ -23,7 +23,7 @@ export const ButtonsWrapper = styled.div`
 `;
 
 export const StepWrapper = styled.div`
-  padding-top: 60px;
+  padding: 60px 0 11px 0;
   max-width: 575px;
 
   width: 100%;

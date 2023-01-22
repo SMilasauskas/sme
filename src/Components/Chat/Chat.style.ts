@@ -6,10 +6,18 @@ export const IconContainer = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   color: ${(props) => props.theme.colors.white};
+
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
+    top: 44%;
+
+    .chatIcon {
+      font-size: 1em;
+    }
+  }
 `;
 
 export const ChatIcon = styled.div`
-  position: absolute;
+  position: fixed;
   right: 61px;
   bottom: 45px;
   cursor: pointer;
@@ -21,11 +29,13 @@ export const ChatIcon = styled.div`
   @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     right: 10px;
     bottom: 10px;
+    width: 34px;
+    height: 34px;
   }
 `;
 
 export const ChatContainer = styled.div`
-  position: absolute;
+  position: fixed;
   right: 61px;
   bottom: 45px;
   width: 430px;

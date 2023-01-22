@@ -4,7 +4,7 @@ export const stepsValidationSchema = [
   yup.object().shape({}),
   yup.object().shape({
     companyCode: yup.string().required('Company Code is required'),
-    // differenct code rules in different countries. should have a deeper company code validation service
+    // different company code rules in different countries. should have a deeper company code validation service
     companyName: yup.string().required('Company Name is required'),
   }),
   yup.object().shape({
@@ -12,6 +12,7 @@ export const stepsValidationSchema = [
     surname: yup.string().required('Surname is required'),
     jobTitle: yup.string().required('Job title is required'),
     phoneCode: yup.number().required('Phone code is required'),
+    email: yup.string().email('E-mail address must be valid').required('Email is required'),
     phoneNumber: yup
       .number()
       .typeError('Phone number should be a valid number')

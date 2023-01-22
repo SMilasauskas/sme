@@ -18,7 +18,12 @@ const Chat = () => {
           }}
         >
           <IconContainer>
-            <FontAwesomeIcon icon={solid('comment')} flip="horizontal" size="2xl" />
+            <FontAwesomeIcon
+              icon={solid('comment')}
+              flip="horizontal"
+              size="2xl"
+              className={'chatIcon'}
+            />
           </IconContainer>
         </ChatIcon>
       )}
